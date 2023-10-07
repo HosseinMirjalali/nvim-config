@@ -1,10 +1,7 @@
 local M = {}
 
--- hide dot giles and git support in nvimtree
+-- git support in nvimtree
 M.nvimtree = {
-  filters = {
-    dotfiles = true,
-  },
   git = {
     enable = true,
   },
@@ -19,10 +16,12 @@ M.nvimtree = {
   },
 }
 
+-- inline git blame
 M.gitsigns = {
   current_line_blame = true,
 }
 
+-- syntax highlight
 M.treesitter = {
   ensure_installed = {
     "go",
