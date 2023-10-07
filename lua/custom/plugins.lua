@@ -24,6 +24,18 @@ local plugins = {
     event = "BufWinEnter",
   },
 
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
+  }
 }
 
 return plugins
