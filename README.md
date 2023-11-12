@@ -1,4 +1,5 @@
 Configuration for [Neovim](https://github.com/neovim/neovim/releases/tag/v0.9.0), based on an [NvChad](https://nvchad.com/) installation.
+Taken from [this repo](https://github.com/le4ker/nvim-config) with some changes.
 
 ## Features
 
