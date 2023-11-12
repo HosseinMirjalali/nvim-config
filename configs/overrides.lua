@@ -5,7 +5,7 @@ M.nvterm = {
   terminals = {
     type_opts = {
       horizontal = {
-        split_ratio = 0.5,
+        split_ratio = 0.3,
       },
     },
   },
