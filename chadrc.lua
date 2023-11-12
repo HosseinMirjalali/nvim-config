@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "everforest_light",
+  theme = "ayu_dark",
   statusline = {
     theme = "default",
     separator_style = "block",
