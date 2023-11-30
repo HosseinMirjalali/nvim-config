@@ -15,7 +15,7 @@ M.nvterm = {
 M.nvimtree = {
 
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 
   git = {
