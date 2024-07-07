@@ -29,16 +29,19 @@ return {
     end,
     ft = { "markdown" },
   },
-  --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "python-lsp-server",
+        "bash-language-server",
+        "gopls",
+        "marksman",
+        "yaml-language-server",
+        "terraform-ls",
+      },
+    },
+  },
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
