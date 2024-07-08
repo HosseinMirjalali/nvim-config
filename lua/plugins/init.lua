@@ -44,20 +44,20 @@ return {
   },
   {
     "dnlhc/glance.nvim",
-    config = function ()
-      require('glance').setup({
+    config = function()
+      require("glance").setup {
         theme = {
           enable = true,
-          mode = 'auto',
+          mode = "auto",
         },
         list = {
-          position = 'right',
+          position = "right",
           width = 0.33,
-        }
-      })
+        },
+      }
     end,
-    cmd = "Glance"
-  }
+    cmd = "Glance",
+  },
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
