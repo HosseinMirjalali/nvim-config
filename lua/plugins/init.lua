@@ -37,6 +37,7 @@ return {
         "bash-language-server",
         "gopls",
         "marksman",
+        "lua-language-server",
         "yaml-language-server",
         "terraform-ls",
       },

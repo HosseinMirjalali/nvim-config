@@ -15,13 +15,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Typescript
--- lspconfig.tsserver.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
---
-
 ---- Python
 lspconfig.pylsp.setup {
   on_attach = on_attach,
@@ -30,11 +23,11 @@ lspconfig.pylsp.setup {
 }
 
 ---- PHP
--- lspconfig.intelephense.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
--- }
+lspconfig.intelephense.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
 
 ---- Terraform
 lspconfig.terraformls.setup {
@@ -64,26 +57,53 @@ lspconfig.marksman.setup {
 }
 
 ---- Golang
--- lspconfig.gopls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = { "gopls" },
---   filetypes = { "go", "gomod", "gowork", "gotmpl" },
---   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
---   settings = {
---     gopls = {
---       completeUnimported = true,
---       usePlaceholders = true,
---       analyses = {
---         unusedparams = true,
---       },
---     },
---   },
--- }
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+}
 
 ---- Bash
 lspconfig.bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "bash", "sh", "zsh" },
+}
+
+---- Ansible
+lspconfig.ansiblels.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "yaml.ansible" },
+  settings = {
+    ansible = {
+      ansible = {
+        path = "ansible",
+      },
+      executionEnvironment = {
+        enabled = false,
+      },
+      python = {
+        interpreterPath = "python",
+      },
+      validation = {
+        enabled = true,
+        lint = {
+          enabled = true,
+          path = "ansible-lint",
+        },
+      },
+    },
+  },
 }
