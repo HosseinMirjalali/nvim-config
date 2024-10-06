@@ -66,6 +66,11 @@ return {
       current_line_blame = true,
     },
   },
+  {
+    "folke/zen-mode.nvim",
+    opts = {},
+    cmd = "ZenMode",
+  },
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",

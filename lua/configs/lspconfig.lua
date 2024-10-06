@@ -20,6 +20,16 @@ lspconfig.pylsp.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E501" },
+          maxLineLength = 100,
+        },
+      },
+    },
+  },
 }
 
 ---- PHP
@@ -33,7 +43,7 @@ lspconfig.intelephense.setup {
 lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "terraform" },
+  filetypes = { "terraform", "tftpl" },
 }
 
 ---- yaml
