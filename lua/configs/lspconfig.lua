@@ -107,3 +107,7 @@ lspconfig.ansiblels.setup {
     },
   },
 }
+
+
+---- Javascript/TypeScript
+

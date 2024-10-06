@@ -32,7 +32,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
+      pkgs = {
         "python-lsp-server",
         "bash-language-server",
         "gopls",
@@ -40,6 +40,7 @@ return {
         "lua-language-server",
         "yaml-language-server",
         "terraform-ls",
+        "biome",
       },
     },
   },
