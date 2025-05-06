@@ -90,6 +90,21 @@ return {
     ft = { "go", "gomod", "gosum", "gotmpl", "gohtmltmpl", "gotexttmpl" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      "echasnovski/mini.pick",
+    },
+    cmd = {
+      "Neogit",
+    },
+    config = function()
+      require("neogit").setup()
+    end,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
