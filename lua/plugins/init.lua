@@ -95,9 +95,11 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
-
       "echasnovski/mini.pick",
     },
+		keys = {
+			{ "<leader>gn", "<cmd>Neogit<cr>", desc = "Open Neogit window" },
+		},
     cmd = {
       "Neogit",
     },
@@ -105,13 +107,114 @@ return {
       require("neogit").setup()
     end,
   },
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    lazy = false,
+    config = function()
+      require("mini.ai").setup(require("configs.mini").ai)
+      require("mini.basics").setup(require("configs.mini").basics)
+      require("mini.bracketed").setup()
+      -- require("mini.clue").setup(require("configs.mini").clue)
+      require("mini.comment").setup(require("configs.mini").comment)
+      require("mini.cursorword").setup()
+      require("mini.diff").setup()
+      require("mini.hipatterns").setup(require("configs.mini").hipatterns)
+      require("mini.icons").setup()
+      require("mini.indentscope").setup()
+      -- require("mini.files").setup(require("configs.mini").files)
+      require("mini.move").setup(require("configs.mini").move)
+      require("mini.notify").setup()
+      require("mini.operators").setup()
+      require("mini.sessions").setup(require("configs.mini").sessions)
+      require("mini.splitjoin").setup {
+        mappings = {
+          toggle = "\\k",
+          split = "sk",
+          join = "sj",
+        },
+      }
+      require("mini.surround").setup()
+      -- require("mini.bufremove").setup()
+      -- require("mini.git").setup()
+      -- require("mini.tabline").setup()
+      -- require("mini.trailspace").setup()
+      -- require("mini.fuzzy").setup()
+      -- require("mini.misc").setup()
+    end,
+  },
+  {
+    "kawre/leetcode.nvim",
+    lazy = false,
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("leetcode").setup {
+        lang = "golang",
+      }
+    end,
+  },
+  {
+		"ramilito/kubectl.nvim",
+		cmd = { "Kubectl", "Kubectx", "Kubens" },
+		-- stylua: ignore
+		keys = {
+			{ "<leader>pk", function() vim.cmd[[tabnew]]; require("kubectl").open() end, desc = "Kubectl" },
+		},
+		opts = {},
+	},
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    config = function()
+      require("outline").setup()
+    end,
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    config = function()
+      require("outline").setup()
+    end,
+    keys = {
+      {
+        "<leader>so",
+        "<cmd>Outline<cr>",
+        desc = "Display Outline",
+      },
+    },
+  },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim",
+      "echasnovski/mini.icons",
+    },
+    config = function()
+      require("render-markdown").setup(require("configs.render-markdown").opts)
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+  	"nvim-treesitter/nvim-treesitter",
+  	opts = {
+  		ensure_installed = {
+  			"vim", "lua", "vimdoc",
+        "html", "css", "go", "yaml",
+        "bash", "python"
+  		},
+  	},
+  },
 }
