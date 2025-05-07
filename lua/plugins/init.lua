@@ -70,6 +70,11 @@ return {
     opts = {},
     cmd = "ZenMode",
   },
+  {
+    "onsails/lspkind.nvim",
+    opts = {},
+    cmd = "",
+  }
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
