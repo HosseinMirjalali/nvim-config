@@ -56,7 +56,7 @@ return {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
+      { "tpope/vim-dadbod",                     lazy = true },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
     },
     cmd = {
@@ -93,13 +93,13 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim", -- required
+      "nvim-lua/plenary.nvim",  -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
       "echasnovski/mini.pick",
     },
-		keys = {
-			{ "<leader>gn", "<cmd>Neogit<cr>", desc = "Open Neogit window" },
-		},
+    keys = {
+      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Open Neogit window" },
+    },
     cmd = {
       "Neogit",
     },
@@ -159,34 +159,36 @@ return {
     end,
   },
   {
-		"ramilito/kubectl.nvim",
-		cmd = { "Kubectl", "Kubectx", "Kubens" },
-		-- stylua: ignore
-		keys = {
-			{ "<leader>pk", function() vim.cmd[[tabnew]]; require("kubectl").open() end, desc = "Kubectl" },
-		},
-		opts = {},
-	},
-  {
-    "hedyhli/outline.nvim",
-    cmd = { "Outline", "OutlineOpen" },
-    config = function()
-      require("outline").setup()
-    end,
-  {
-    "hedyhli/outline.nvim",
-    cmd = { "Outline", "OutlineOpen" },
-    config = function()
-      require("outline").setup()
-    end,
+    "ramilito/kubectl.nvim",
+    cmd = { "Kubectl", "Kubectx", "Kubens" },
+    -- stylua: ignore
     keys = {
-      {
-        "<leader>so",
-        "<cmd>Outline<cr>",
-        desc = "Display Outline",
+      { "<leader>pk", function()
+        vim.cmd [[tabnew]]; require("kubectl").open()
+      end, desc = "Kubectl" },
+    },
+    opts = {},
+  },
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    config = function()
+      require("outline").setup()
+    end,
+    {
+      "hedyhli/outline.nvim",
+      cmd = { "Outline", "OutlineOpen" },
+      config = function()
+        require("outline").setup()
+      end,
+      keys = {
+        {
+          "<leader>so",
+          "<cmd>Outline<cr>",
+          desc = "Display Outline",
+        },
       },
     },
-  },
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -208,13 +210,13 @@ return {
     end,
   },
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
         "html", "css", "go", "yaml",
         "bash", "python"
-  		},
-  	},
+      },
+    },
   },
 }
