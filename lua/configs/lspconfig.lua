@@ -30,6 +30,48 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.pylsp.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E501" },
+          maxLineLength = 100,
+        },
+      },
+    },
+  },
+}
+
+---- yaml
+lspconfig.yamlls.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://panther-community-us-east-1.s3.amazonaws.com/latest/logschema/schema.json"] = "internal/log_analysis/yamlschemas/schemas/**",
+      },
+    },
+  },
+}
+
+---- Markdown
+lspconfig.marksman.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "markdown" },
+}
+
+lspconfig.bashls.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "bash", "sh", "zsh" },
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
