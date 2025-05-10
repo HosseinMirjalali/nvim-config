@@ -30,6 +30,23 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.basedpyright.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  cmd = { "basedpyright-langserver", "--stdio" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyrightconfig.json", ".git" },
+  settings = {
+    disableOrganizeImports = true,
+    basedpyright = {
+      analysis = {
+        ignore = { '*' },
+        typeCheckingMode = 'off',
+      },
+    },
+  },
+}
+
 lspconfig.pylsp.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
